@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Similarity Checker System</title>
+    <!--<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='main.css')}}">-->
+</head>
+<body>
+    <form action="/" method="post" id="checker-ui">
+        <div class="checker-text-left">
+            <p>Text A:</p>
+            <textarea rows="20" cols="100" name="text_a">{{text_a}}</textarea><br>
+        </div>
+        <div class="checker-text-right">
+            <p>Text B:</p>
+            <textarea rows="20" cols="100" name="text_b">{{text_b}}</textarea><br>
+        </div>
+        <div class="checker-combobox-method">
+             <select name="checking-method">
+                 <option value="cosine">Cosine</option>
+                 <option value="jaccard">Jaccard</option>
+                 <option value="none">None</option>
+                 <option value="none">None</option>
+             </select>
+        </div>
+        <div class="checker-button-submit">
+            <input type="submit" value="Submit!">
+        </div>
+    </form>
+    <div class="result">
+        <p>Applied similarity algorithm: {{checking_method}}</p>
+        <p>Result: {{result}}</p>
+    </div>
+</body>
+</html>
