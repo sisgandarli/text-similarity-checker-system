@@ -1,7 +1,7 @@
 import string
 import math
 
-ta = "Use your own thinking while solving the problems"
+ta = "bu qədər asan ola bilməz ki"
 tb = "Thinking on your own is good, , , , ,   when you solve the problems"
 
 
@@ -57,6 +57,25 @@ def compare(texta, textb):
     cos = ab / (math.sqrt(a) * math.sqrt(b))
     print(cos)
     pass
-
-compare(ta, tb)
+#
+# compare(ta, tb)
 # print(split(lower(remove_punct(tb))))
+
+
+stopwords = []
+
+with open("../files/stop-words-AZ.txt", "r", encoding="utf8") as stopwords_file:
+    for word in stopwords_file:
+        stopwords.append(word.strip())
+
+
+texta = split(lower(remove_punct(ta)))
+
+print(stopwords)
+for i in texta:
+    if i in stopwords:
+        texta.remove(i)
+print(texta)
+
+
+
