@@ -9,8 +9,25 @@ def algorithm_factory(checking_method):
         return CosineSimilarityAlgorithm()
     elif checking_method == "jaccard":
         return JaccardSimilarityAlgorithm()
+    elif checking_method == "cosine_stemming":
+        return CosineSimilarityAlgorithmWithStemming()
+    elif checking_method == "jaccard_stemming":
+        return JaccardSimilarityAlgorithmWithStemming()
+    elif checking_method == "cosine_stemming_stopwords_removed":
+        return CosineSimilarityAlgorithmWithStemmingStopwordsRemoved()
+    elif checking_method == "jaccard_stemming_stopwords_removed":
+        return JaccardSimilarityAlgorithmWithStemmingStopwordsRemoved()
     else:
         return None
+
+
+def apply_all_available_similarity_checking_methods(text_a, text_b):
+    list = ["cosine", "jaccard", "cosine_stemming", "jaccard_stemming", "cosine_stemming_stopwords_removed",
+            "jaccard_stemming_stopwords_removed"]
+    for i in list:
+        algorithm = algorithm_factory(i)
+        result = algorithm.compare(text_a, text_b)
+        print(i + " " + str(result))
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -24,6 +41,8 @@ def index():
 
         algorithm = algorithm_factory(checking_method)
         result = algorithm.compare(text_a, text_b)
+
+        apply_all_available_similarity_checking_methods(text_a, text_b)
 
         return render_template("result.html", text_a=text_a, text_b=text_b, checking_method=checking_method.upper(),
                                result=result)
