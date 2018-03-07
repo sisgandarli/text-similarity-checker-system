@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Similarity Checker System</title>
-    <!--<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='main.css')}}">-->
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
 </head>
 <body>
     <form action="/" method="post" id="checker-ui">
@@ -32,6 +32,17 @@
     <div class="result">
         <p>Applied similarity algorithm: {{checking_method}}</p>
         <p>Result: {{result}}</p>
+    </div>
+    <div class="all-results">
+        <h2>All algorithms</h2>
+        <table border="1">
+            {% for t in result_list %}
+            <tr>
+                <td>{{t[0]}}</td>
+                <td>{{t[1]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
     </div>
 </body>
 </html>
