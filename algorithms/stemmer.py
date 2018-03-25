@@ -21,7 +21,7 @@ class Stemmer:
     # Loads the words from the word.txt file into memory.
     def load_words(self):
         # Open words.txt file in read mode with utf-8 encoding.
-        with open("words.txt", "r", encoding="utf8") as words_file:
+        with open("files/words.txt", "r", encoding="utf8") as words_file:
             # Iterate over each line in the words.txt file
             for word in words_file:
                 # Trim the spaces and newline characters from the string before adding to the list.
@@ -30,7 +30,7 @@ class Stemmer:
     # Loads the suffixes from the suffix.txt file into memory.
     def load_suffixes(self):
         # Open suffix.txt file in read mode with utf-8 encoding.
-        with open("suffix.txt", "r", encoding="utf8") as suffix_file:
+        with open("files/suffix.txt", "r", encoding="utf8") as suffix_file:
             # Iterate over each line in the suffix.txt file.
             for suffix in suffix_file:
                 # Trim the spaces and newline characters from the string before adding to the list.

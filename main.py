@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
 from algorithms.similarity_algorithms import *
+from algorithms.cosine import *
+from algorithms.jaccard import *
 
 app = Flask(__name__)
 
