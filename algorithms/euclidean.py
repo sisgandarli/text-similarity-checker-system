@@ -34,7 +34,7 @@ class EuclideanSim(SimilarityAlgorithm):
         return euclidean_similarity_coefficient
 
 
-class EuclideanSimStemming(SimilarityAlgorithm):
+class EuclideanSimStem(SimilarityAlgorithm):
     def compare(self, text_a, text_b):
         texta = self.split(self.lower(self.remove_punctuation(text_a)))
         textb = self.split(self.lower(self.remove_punctuation(text_b)))
@@ -70,7 +70,7 @@ class EuclideanSimStemming(SimilarityAlgorithm):
         return euclidean_similarity_coefficient
 
 
-class EuclideanSimStemmingWithoutStopwords(SimilarityAlgorithm):
+class EuclideanSimStemStopwordsRem(SimilarityAlgorithm):
     def compare(self, text_a, text_b):
         texta = self.split(self.lower(self.remove_punctuation(text_a)))
         textb = self.split(self.lower(self.remove_punctuation(text_b)))

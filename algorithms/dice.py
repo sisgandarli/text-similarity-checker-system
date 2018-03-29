@@ -42,7 +42,7 @@ class DiceSim(SimilarityAlgorithm):
         return dice_similarity_coefficient
 
 
-class DiceSimStemming(SimilarityAlgorithm):
+class DiceSimStem(SimilarityAlgorithm):
     def compare(self, text_a, text_b):
         texta = self.split(self.lower(self.remove_punctuation(text_a)))
         textb = self.split(self.lower(self.remove_punctuation(text_b)))
@@ -86,7 +86,7 @@ class DiceSimStemming(SimilarityAlgorithm):
         return dice_similarity_coefficient
 
 
-class DiceSimStemmingWithoutStopwords(SimilarityAlgorithm):
+class DiceSimStemStopwordsRem(SimilarityAlgorithm):
     def compare(self, text_a, text_b):
         texta = self.split(self.lower(self.remove_punctuation(text_a)))
         textb = self.split(self.lower(self.remove_punctuation(text_b)))

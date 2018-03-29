@@ -45,7 +45,7 @@ class MatchingCoefSim(SimilarityAlgorithm):
         return matching_coefficient
 
 
-class MatchingCoefStemming(SimilarityAlgorithm):
+class MatchingCoefStem(SimilarityAlgorithm):
     def compare(self, text_a, text_b):
         texta = self.split(self.lower(self.remove_punctuation(text_a)))
         textb = self.split(self.lower(self.remove_punctuation(text_b)))
@@ -92,7 +92,7 @@ class MatchingCoefStemming(SimilarityAlgorithm):
         return matching_coefficient
 
 
-class MatchingCoefSimStemmingWithoutStopwords(SimilarityAlgorithm):
+class MatchingCoefSimStemStopwordsRem(SimilarityAlgorithm):
     def compare(self, text_a, text_b):
         texta = self.split(self.lower(self.remove_punctuation(text_a)))
         textb = self.split(self.lower(self.remove_punctuation(text_b)))

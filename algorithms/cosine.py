@@ -40,7 +40,7 @@ class CosineSim(SimilarityAlgorithm):
         return cosine_similarity_coefficient
 
 
-class CosineSimStemming(SimilarityAlgorithm):
+class CosineSimStem(SimilarityAlgorithm):
     def compare(self, text_a, text_b):
         texta = self.split(self.lower(self.remove_punctuation(text_a)))
         textb = self.split(self.lower(self.remove_punctuation(text_b)))
@@ -82,7 +82,7 @@ class CosineSimStemming(SimilarityAlgorithm):
         return cosine_similarity_coefficient
 
 
-class CosineSimStemmingWithoutStopwords(SimilarityAlgorithm):
+class CosineSimStemStopwordsRem(SimilarityAlgorithm):
     def compare(self, text_a, text_b):
         texta = self.split(self.lower(self.remove_punctuation(text_a)))
         textb = self.split(self.lower(self.remove_punctuation(text_b)))

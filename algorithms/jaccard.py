@@ -16,7 +16,7 @@ class JaccardSim(SimilarityAlgorithm):
         return jaccard_similarity_result
 
 
-class JaccardSimStemming(SimilarityAlgorithm):
+class JaccardSimStem(SimilarityAlgorithm):
     def compare(self, text_a, text_b):
         texta = self.split(self.lower(self.remove_punctuation(text_a)))
         textb = self.split(self.lower(self.remove_punctuation(text_b)))
@@ -34,7 +34,7 @@ class JaccardSimStemming(SimilarityAlgorithm):
         return jaccard_similarity_result
 
 
-class JaccardSimStemmingWithoutStopwords(SimilarityAlgorithm):
+class JaccardSimStemStopwordsRem(SimilarityAlgorithm):
     def compare(self, text_a, text_b):
         texta = self.split(self.lower(self.remove_punctuation(text_a)))
         textb = self.split(self.lower(self.remove_punctuation(text_b)))
