@@ -3,7 +3,7 @@ import math
 from algorithms.stemmer import Stemmer
 
 
-class CosineSimilarityAlgorithm(SimilarityAlgorithm):
+class CosineSim(SimilarityAlgorithm):
     def compare(self, text_a, text_b):
         texta = self.split(self.lower(self.remove_punctuation(text_a)))
         textb = self.split(self.lower(self.remove_punctuation(text_b)))
@@ -40,7 +40,7 @@ class CosineSimilarityAlgorithm(SimilarityAlgorithm):
         return cosine_similarity_coefficient
 
 
-class CosineSimilarityAlgorithmWithStemming(SimilarityAlgorithm):
+class CosineSimStemming(SimilarityAlgorithm):
     def compare(self, text_a, text_b):
         texta = self.split(self.lower(self.remove_punctuation(text_a)))
         textb = self.split(self.lower(self.remove_punctuation(text_b)))
@@ -82,7 +82,7 @@ class CosineSimilarityAlgorithmWithStemming(SimilarityAlgorithm):
         return cosine_similarity_coefficient
 
 
-class CosineSimilarityAlgorithmWithStemmingStopwordsRemoved(SimilarityAlgorithm):
+class CosineSimStemmingWithoutStopwords(SimilarityAlgorithm):
     def compare(self, text_a, text_b):
         texta = self.split(self.lower(self.remove_punctuation(text_a)))
         textb = self.split(self.lower(self.remove_punctuation(text_b)))
