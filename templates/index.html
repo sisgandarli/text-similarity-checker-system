@@ -9,11 +9,11 @@
     <form action="/" method="post" id="checker-ui">
         <div class="checker-text-left">
             <p>Text A:</p>
-            <textarea rows="20" cols="100" name="text_a">{{text_a}}</textarea><br>
+            <textarea rows="20" cols="100" name="text_a" required>{{text_a}}</textarea><br>
         </div>
         <div class="checker-text-right">
             <p>Text B:</p>
-            <textarea rows="20" cols="100" name="text_b">{{text_b}}</textarea><br>
+            <textarea rows="20" cols="100" name="text_b" required>{{text_b}}</textarea><br>
         </div>
         <div class="checker-combobox-method">
             <select name="checking-method">
@@ -41,5 +41,9 @@
             <input type="submit" value="Submit!">
         </div>
     </form>
+
+    <script type="text/javascript">
+
+    </script>
 </body>
 </html>
