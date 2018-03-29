@@ -1,7 +1,10 @@
+kən
 dakı
 dəki
 lar
 lər
+la
+lə
 ıb
 ib
 ub
@@ -25,6 +28,9 @@ i
 u
 ü
 mız
+miz
+muz
+müz
 ımız
 imiz
 umuz
