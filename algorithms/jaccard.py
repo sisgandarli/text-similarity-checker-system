@@ -3,7 +3,7 @@ import math
 from algorithms.stemmer import Stemmer
 
 
-class JaccardSimilarityAlgorithm(SimilarityAlgorithm):
+class JaccardSim(SimilarityAlgorithm):
     def compare(self, text_a, text_b):
         texta = self.split(self.lower(self.remove_punctuation(text_a)))
         textb = self.split(self.lower(self.remove_punctuation(text_b)))
@@ -16,7 +16,7 @@ class JaccardSimilarityAlgorithm(SimilarityAlgorithm):
         return jaccard_similarity_result
 
 
-class JaccardSimilarityAlgorithmWithStemming(SimilarityAlgorithm):
+class JaccardSimStemming(SimilarityAlgorithm):
     def compare(self, text_a, text_b):
         texta = self.split(self.lower(self.remove_punctuation(text_a)))
         textb = self.split(self.lower(self.remove_punctuation(text_b)))
@@ -34,7 +34,7 @@ class JaccardSimilarityAlgorithmWithStemming(SimilarityAlgorithm):
         return jaccard_similarity_result
 
 
-class JaccardSimilarityAlgorithmWithStemmingStopwordsRemoved(SimilarityAlgorithm):
+class JaccardSimStemmingWithoutStopwords(SimilarityAlgorithm):
     def compare(self, text_a, text_b):
         texta = self.split(self.lower(self.remove_punctuation(text_a)))
         textb = self.split(self.lower(self.remove_punctuation(text_b)))
