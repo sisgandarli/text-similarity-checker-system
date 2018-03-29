@@ -12,7 +12,7 @@ class Stemmer:
         # Load suffixes from the suffix.txt file.
         self.load_suffixes()
 
-    # Destructor of the Stemmer class.
+    # Destructor of the Stemmer class.zz
     def __del__(self):
         # Clear both lists to free the memory space.
         self.words.clear()
@@ -38,25 +38,68 @@ class Stemmer:
 
     # Removes one suffix at a time
     def suffix(self, word):
+        for suffix in self.suffixes:
+            # If the word ends with the particular suffix, create a new word by removing that suffix.
+            if word.endswith(suffix) and (word[:word.rfind(suffix)] in self.words):
+                word = word[:word.rfind(suffix)]
+                return word
         # Iterate over the suffixes.
         for suffix in self.suffixes:
             # If the word ends with the particular suffix, create a new word by removing that suffix.
             if word.endswith(suffix):
                 word = word[:word.rfind(suffix)]
-                break
+                return word
         return word
+
+    # Converts changing suffixes to original form
+    def converter(self, word):
+        if word.endswith('lığ') or word.endswith('luğ') or word.endswith('lağ') or word.endswith('cığ'):
+            l = list(word);
+            l[-1] = 'q';
+            return "".join(l)
+        if word.endswith('liy') or word.endswith('lüy'):
+            l = list(word);
+            l[-1] = 'k';
+            return "".join(l)
+        if word.endswith('cağ'):
+            l = list(word);
+            l[-1] = 'q';
+            return "".join(l)
+        if word.endswith('cəy'):
+            l = list(word);
+            l[-1] = 'k';
+            return "".join(l)
+        if word.endswith('ığ') or word.endswith('uğ') or word.endswith('ağ'):
+            l = list(word);
+            l[-1] = 'q';
+            return "".join(l)
+        if word.endswith('iy') or word.endswith('üy') or word.endswith('əy'):
+            l = list(word);
+            l[-1] = 'k';
+            return "".join(l)
+        if word == 'ed':
+            l = list(word);
+            l[1] = 't';
+            return "".join(l)
+        if word == 'ged':
+            l = list(word);
+            l[2] = 't';
+            return "".join(l)
 
     # Returns the stemmed version of word.
     def stem_word(self, word):
         # Change the word to lowercase.
         word = word.lower()
+        nw = word
         # Remove suffixes until word is in dictionary
         while word not in self.words:
+            if self.converter(word) in self.words:
+                return self.converter(word)
             new_word = self.suffix(word)
             if new_word != word:
                 word = new_word
             else:
-                break
+                return nw
         # If it is not possible to apply stemming to that word, return it.
         return word
 
