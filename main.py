@@ -55,14 +55,29 @@ def algorithm_factory(checking_method):
 
 def apply_all_available_similarity_checking_methods(text_a, text_b):
     result_list = list()
-    methods = ["cos", "cos_stem", "cos_stem_stop_rem", "jac", "jac_stem", "jac_stem_stop_rem", "dice", "dice_stem",
-               "dice_stem_stop_rem",
-               "eucl", "eucl_stem", "eucl_stem_stop_rem", "match", "match_stem", "match_stem_stop_rem", "overlap",
-               "overlap_stem", "overlap_stem_stop_rem"]
+    methods = [["cos", "Cosine Similarity"],
+               ["cos_stem", "Cosine Similarity (stemming is applied)"],
+               ["cos_stem_stop_rem", "Cosine Similarity (stemming and stopwords removal are applied)"],
+               ["jac", "Jaccard Similarity"],
+               ["jac_stem", "Jaccard Similarity (stemming is applied)"],
+               ["jac_stem_stop_rem", "Jaccard Similarity (stemming and stopwords removal are applied)"],
+               ["dice", "Dice Coefficient"],
+               ["dice_stem", "Dice Coefficient (stemming is applied)"],
+               ["dice_stem_stop_rem", "Dice Coefficient (stemming and stopwords removal are applied)"],
+               ["eucl", "Euclidean Distance"],
+               ["eucl_stem", "Euclidean Distance (stemming is applied)"],
+               ["eucl_stem_stop_rem", "Euclidean Distance (stemming and stopwords removal are applied)"],
+               ["match", "Matching Coefficient"],
+               ["match_stem", "Matching Coefficient (stemming is applied)"],
+               ["match_stem_stop_rem", "Matching Coefficient (stemming and stopwords removal are applied)"],
+               ["overlap", "Overlap Coefficient"],
+               ["overlap_stem", "Overlap Coefficient (stemming is applied)"],
+               ["overlap_stem_stop_rem", "Overlap Coefficient (stemming and stopwords removal are applied)"]
+               ]
     for i in methods:
-        algorithm = algorithm_factory(i)
+        algorithm = algorithm_factory(i[0])
         result = algorithm.compare(text_a, text_b)
-        print(i + " " + str(result))
+        print(i[0] + " " + str(result))
         result_list.append((i, str(result)))
     return result_list
 
