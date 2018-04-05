@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from flask import Flask, render_template, request
 from algorithms.similarity_algorithms import *
 from algorithms.cosine import *
@@ -79,6 +81,10 @@ def apply_all_available_similarity_checking_methods(text_a, text_b):
         result = algorithm.compare(text_a, text_b)
         print(i[0] + " " + str(result))
         result_list.append((i, str(result)))
+        # Prevents caching
+        del result
+        del algorithm
+
     return result_list
 
 
