@@ -40,13 +40,13 @@ def algorithm_factory(checking_method):
     elif checking_method == "match":
         return MatchingCoefSim()
     elif checking_method == "match_stem":
-        return MatchingCoefStem()
+        return MatchingCoefSimStem()
     elif checking_method == "match_stem_stop_rem":
         return MatchingCoefSimStemStopwordsRem()
     elif checking_method == "overlap":
         return OverlapCoefSim()
     elif checking_method == "overlap_stem":
-        return OverlapCoefStem()
+        return OverlapCoefSimStem()
     elif checking_method == "overlap_stem_stop_rem":
         return OverlapCoefSimStemStopwordsRem()
     else:

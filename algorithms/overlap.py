@@ -16,7 +16,7 @@ class OverlapCoefSim(SimilarityAlgorithm):
         return matching_coefficient
 
 
-class OverlapCoefStem(SimilarityAlgorithm):
+class OverlapCoefSimStem(SimilarityAlgorithm):
     def compare(self, text_a, text_b):
         texta = self.split(self.lower(self.remove_punctuation(text_a)))
         textb = self.split(self.lower(self.remove_punctuation(text_b)))

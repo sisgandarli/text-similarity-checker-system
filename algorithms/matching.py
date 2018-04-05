@@ -45,7 +45,7 @@ class MatchingCoefSim(SimilarityAlgorithm):
         return matching_coefficient
 
 
-class MatchingCoefStem(SimilarityAlgorithm):
+class MatchingCoefSimStem(SimilarityAlgorithm):
     def compare(self, text_a, text_b):
         texta = self.split(self.lower(self.remove_punctuation(text_a)))
         textb = self.split(self.lower(self.remove_punctuation(text_b)))
