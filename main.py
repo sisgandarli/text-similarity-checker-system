@@ -5,8 +5,6 @@ from algorithms.similarity_algorithms import *
 from algorithms.cosine import *
 from algorithms.jaccard import *
 from algorithms.dice import *
-from algorithms.euclidean import *
-from algorithms.matching import *
 from algorithms.overlap import *
 
 app = Flask(__name__)
@@ -33,18 +31,6 @@ def algorithm_factory(checking_method):
         return DiceSimStem()
     elif checking_method == "dice_stem_stop_rem":
         return DiceSimStemStopwordsRem()
-    elif checking_method == "eucl":
-        return EuclideanSim()
-    elif checking_method == "eucl_stem":
-        return EuclideanSimStem()
-    elif checking_method == "eucl_stem_stop_rem":
-        return EuclideanSimStemStopwordsRem()
-    elif checking_method == "match":
-        return MatchingCoefSim()
-    elif checking_method == "match_stem":
-        return MatchingCoefSimStem()
-    elif checking_method == "match_stem_stop_rem":
-        return MatchingCoefSimStemStopwordsRem()
     elif checking_method == "overlap":
         return OverlapCoefSim()
     elif checking_method == "overlap_stem":
@@ -66,12 +52,6 @@ def apply_all_available_similarity_checking_methods(text_a, text_b):
                ["dice", "Dice Coefficient"],
                ["dice_stem", "Dice Coefficient (stemming is applied)"],
                ["dice_stem_stop_rem", "Dice Coefficient (stemming and stopwords removal are applied)"],
-               ["eucl", "Euclidean Distance"],
-               ["eucl_stem", "Euclidean Distance (stemming is applied)"],
-               ["eucl_stem_stop_rem", "Euclidean Distance (stemming and stopwords removal are applied)"],
-               ["match", "Matching Coefficient"],
-               ["match_stem", "Matching Coefficient (stemming is applied)"],
-               ["match_stem_stop_rem", "Matching Coefficient (stemming and stopwords removal are applied)"],
                ["overlap", "Overlap Coefficient"],
                ["overlap_stem", "Overlap Coefficient (stemming is applied)"],
                ["overlap_stem_stop_rem", "Overlap Coefficient (stemming and stopwords removal are applied)"]
