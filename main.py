@@ -9,6 +9,21 @@ from algorithms.overlap import *
 
 app = Flask(__name__)
 
+method_names = {}
+method_names["cos"] = "Cosine Similarity"
+method_names["cos_stem"] = "Cosine Similarity (stemming is applied)"
+method_names["cos_stem_stop_rem"] = "Cosine Similarity (stemming and stopwords removal are applied)"
+method_names["jac"] = "Jaccard Similarity"
+method_names["jac_stem"] = "Jaccard Similarity (stemming is applied)"
+method_names["jac_stem_stop_rem"] = "Jaccard Similarity (stemming and stopwords removal are applied)"
+method_names["dice"] = "Dice Coefficient"
+method_names["dice_stem"] = "Dice Coefficient (stemming is applied)"
+method_names["dice_stem_stop_rem"] = "Dice Coefficient (stemming and stopwords removal are applied)"
+method_names["overlap"] = "Overlap Coefficient"
+method_names["overlap_stem"] = "Overlap Coefficient (stemming is applied)"
+method_names["overlap_stem_stop_rem"] = "Overlap Coefficient (stemming and stopwords removal are applied)"
+method_names["ann"] = "Artificial Neural Network"
+
 
 def algorithm_factory(checking_method):
     if checking_method is None:
@@ -54,10 +69,12 @@ def apply_all_available_similarity_checking_methods(text_a, text_b):
                ["dice_stem_stop_rem", "Dice Coefficient (stemming and stopwords removal are applied)"],
                ["overlap", "Overlap Coefficient"],
                ["overlap_stem", "Overlap Coefficient (stemming is applied)"],
-               ["overlap_stem_stop_rem", "Overlap Coefficient (stemming and stopwords removal are applied)"]
+               ["overlap_stem_stop_rem", "Overlap Coefficient (stemming and stopwords removal are applied)"],
+               ["ann", "Artificial Neural Network"]
                ]
     for i in methods:
         algorithm = algorithm_factory(i[0])
+        if (algorithm is None): continue
         result = algorithm.compare(text_a, text_b)
         print(i[0] + " " + str(result))
         result_list.append((i, str(result)))
@@ -77,13 +94,15 @@ def index():
         text_b = request.form["text_b"]
         checking_method = request.form['checking-method']
 
+        checking_method_name = method_names[checking_method]
+
         algorithm = algorithm_factory(checking_method)
         result = algorithm.compare(text_a, text_b)
 
-        result_list = apply_all_available_similarity_checking_methods(text_a, text_b)
+        # result_list = apply_all_available_similarity_checking_methods(text_a, text_b)
 
-        return render_template("result.html", text_a=text_a, text_b=text_b, checking_method=checking_method.upper(),
-                               result=result, result_list=result_list)
+        return render_template("result.html", text_a=text_a, text_b=text_b, checking_method=checking_method_name.upper(),
+                               result=result)
 
 
 if __name__ == "__main__":

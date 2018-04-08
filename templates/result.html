@@ -29,6 +29,7 @@
                  <option value="overlap">Overlap Coefficient</option>
                  <option value="overlap_stem">Overlap Coefficient (stemming is applied)</option>
                  <option value="overlap_stem_stop_rem">Overlap Coefficient (stemming and stopwords removal are applied)</option>
+                 <option value="ann">Artificial Neural Network</option>
              </select>
         </div>
         <div class="checker-button-submit">
@@ -38,17 +39,6 @@
     <div class="result">
         <p>Applied similarity algorithm: {{checking_method}}</p>
         <p>Result: {{result}}</p>
-    </div>
-    <div class="all-results">
-        <h2>All algorithms</h2>
-        <table border="1">
-            {% for t in result_list %}
-            <tr>
-                <td>{{t[0][1]}}</td>
-                <td>{{t[1]}}</td>
-            </tr>
-            {% endfor %}
-        </table>
     </div>
 </body>
 </html>

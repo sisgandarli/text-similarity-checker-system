@@ -26,6 +26,9 @@ class SimilarityAlgorithm:
     def remove_punctuation(self, text):
         return text.translate(text.maketrans(string.punctuation, " " * len(string.punctuation)))
 
+    def remove_spec_chars(self, text):
+        return text.replace(u'\xa0', u' ')
+
     def remove_stopwords(self, list_of_words):
         return [word for word in list_of_words if word not in self.stopwords]
 

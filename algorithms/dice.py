@@ -5,8 +5,8 @@ from algorithms.stemmer import Stemmer
 
 class DiceSim(SimilarityAlgorithm):
     def compare(self, text_a, text_b):
-        texta = self.split(self.lower(self.remove_punctuation(text_a)))
-        textb = self.split(self.lower(self.remove_punctuation(text_b)))
+        texta = self.split(self.lower(self.remove_punctuation(self.remove_spec_chars(text_a))))
+        textb = self.split(self.lower(self.remove_punctuation(self.remove_spec_chars(text_b))))
 
         general_set = set()
         for i in texta:
@@ -44,8 +44,8 @@ class DiceSim(SimilarityAlgorithm):
 
 class DiceSimStem(SimilarityAlgorithm):
     def compare(self, text_a, text_b):
-        texta = self.split(self.lower(self.remove_punctuation(text_a)))
-        textb = self.split(self.lower(self.remove_punctuation(text_b)))
+        texta = self.split(self.lower(self.remove_punctuation(self.remove_spec_chars(text_a))))
+        textb = self.split(self.lower(self.remove_punctuation(self.remove_spec_chars(text_b))))
 
         stemmer = Stemmer()
 
@@ -88,8 +88,8 @@ class DiceSimStem(SimilarityAlgorithm):
 
 class DiceSimStemStopwordsRem(SimilarityAlgorithm):
     def compare(self, text_a, text_b):
-        texta = self.split(self.lower(self.remove_punctuation(text_a)))
-        textb = self.split(self.lower(self.remove_punctuation(text_b)))
+        texta = self.split(self.lower(self.remove_punctuation(self.remove_spec_chars(text_a))))
+        textb = self.split(self.lower(self.remove_punctuation(self.remove_spec_chars(text_b))))
 
         texta = self.remove_stopwords(texta)
         textb = self.remove_stopwords(textb)

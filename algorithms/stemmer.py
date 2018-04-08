@@ -54,38 +54,22 @@ class Stemmer:
     # Converts changing suffixes to original form
     def converter(self, word):
         if word.endswith('lığ') or word.endswith('luğ') or word.endswith('lağ') or word.endswith('cığ'):
-            l = list(word);
-            l[-1] = 'q';
-            return "".join(l)
+            l=list(word); l[-1]='q'; return "".join(l)
         if word.endswith('liy') or word.endswith('lüy'):
-            l = list(word);
-            l[-1] = 'k';
-            return "".join(l)
+            l=list(word); l[-1]='k'; return "".join(l)
         if word.endswith('cağ'):
-            l = list(word);
-            l[-1] = 'q';
-            return "".join(l)
+            l=list(word); l[-1]='q'; return "".join(l)
         if word.endswith('cəy'):
-            l = list(word);
-            l[-1] = 'k';
-            return "".join(l)
+            l=list(word); l[-1]='k'; return "".join(l)
         if word.endswith('ığ') or word.endswith('uğ') or word.endswith('ağ'):
-            l = list(word);
-            l[-1] = 'q';
-            return "".join(l)
+            l=list(word); l[-1]='q'; return "".join(l)
         if word.endswith('iy') or word.endswith('üy') or word.endswith('əy'):
-            l = list(word);
-            l[-1] = 'k';
-            return "".join(l)
+            l=list(word); l[-1]='k'; return "".join(l)
         if word == 'ed':
-            l = list(word);
-            l[1] = 't';
-            return "".join(l)
+            l=list(word); l[1]='t'; return "".join(l)
         if word == 'ged':
-            l = list(word);
-            l[2] = 't';
-            return "".join(l)
-
+            l=list(word); l[2]='t'; return "".join(l)
+        
     # Returns the stemmed version of word.
     def stem_word(self, word):
         # Change the word to lowercase.
