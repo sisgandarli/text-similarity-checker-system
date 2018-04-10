@@ -2,6 +2,7 @@
 
 from flask import Flask, render_template, request
 from algorithms.similarity_algorithms import *
+from algorithms.ann import *
 from algorithms.cosine import *
 from algorithms.jaccard import *
 from algorithms.dice import *
@@ -52,6 +53,8 @@ def algorithm_factory(checking_method):
         return OverlapCoefSimStem()
     elif checking_method == "overlap_stem_stop_rem":
         return OverlapCoefSimStemStopwordsRem()
+    elif checking_method == "ann":
+        return ANN()
     else:
         return None
 
