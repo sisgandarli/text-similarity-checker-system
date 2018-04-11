@@ -31,7 +31,6 @@ class DiceSim(SimilarityAlgorithm):
         for i in general_set:
             if map_a[i] > 0 and map_b[i] > 0:
                 ab += 1
-        for i in general_set:
             if map_a[i] > 0:
                 a += 1
             if map_b[i] > 0:
@@ -75,7 +74,6 @@ class DiceSimStem(SimilarityAlgorithm):
         for i in general_set:
             if map_a[i] > 0 and map_b[i] > 0:
                 ab += 1
-        for i in general_set:
             if map_a[i] > 0:
                 a += 1
             if map_b[i] > 0:
@@ -122,7 +120,6 @@ class DiceSimStemStopwordsRem(SimilarityAlgorithm):
         for i in general_set:
             if map_a[i] > 0 and map_b[i] > 0:
                 ab += 1
-        for i in general_set:
             if map_a[i] > 0:
                 a += 1
             if map_b[i] > 0:
