@@ -1,0 +1,68 @@
+@font-face {
+     font-family: "Chalk Text";
+     src: url("../static/fonts/dk_cool_crayon.ttf");
+}
+ body {
+    /* background-color: #d5f4e6;
+    */
+     background:url("../static/images/background.png") no-repeat center top;
+     color: #fff;
+}
+ .checker-text-left {
+     float: left;
+     margin-left: 7%;
+     margin-bottom: 1%;
+     border-bottom-style: double;
+}
+ .checker-text-right{
+    float: right;
+     margin-right: 7%;
+     margin-bottom: 1%;
+     border-bottom-style: double
+}
+ .checker-combobox-method{
+    clear: both;
+     margin-left: 30px;
+}
+ .checker-button-submit {
+     margin-top: 1%;
+     margin-left: 30px;
+     font-size: 12px;
+}
+ textarea{
+    background:none;
+    color:#fff;
+}
+ .footer {
+     text-align:center;
+}
+ .head-text{
+     font-family:"Chalk Text";
+     margin-top: 5%;
+}
+ .button1 {
+     background-color:#fff;
+     border-radius: 10px;
+     color: #585858;
+     border: 3px solid #555555;
+     padding: 15px 32px;
+     text-align: center;
+     -webkit-transition-duration: 0.4s;
+     transition-duration: 0.4s;
+     margin: 16px 0 !important;
+     text-decoration: none;
+     font-size: 16px;
+     cursor: pointer;
+}
+ .button1:hover{
+    background-color:#FF0000;
+}
+ .checker-combobox-method .selectbox{
+     padding: 5px;
+     color: #fff;
+     background:none;
+}
+
+ option{
+     background-color: #333;
+}
