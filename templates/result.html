@@ -3,40 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Similarity Checker System</title>
+	
     <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
 </head>
 <body>
+    <h1 class="head-text" style="font-size:65px; text-align:center; ">Text Similarity Checker</h1>
     <form action="/" method="post" id="checker-ui">
         <div class="checker-text-left">
             <p>Text A:</p>
-            <textarea rows="20" cols="100" name="text_a" required>{{text_a}}</textarea><br>
+            <textarea rows="20" cols="70" name="text_a" required>{{text_a}}</textarea><br>
         </div>
         <div class="checker-text-right">
             <p>Text B:</p>
-            <textarea rows="20" cols="100" name="text_b" required>{{text_b}}</textarea><br>
+            <textarea rows="20" cols="70" name="text_b" required>{{text_b}}</textarea><br>
         </div>
-        <div class="checker-combobox-method">
-             <select name="checking-method">
-                 <option value="cos">Cosine Similarity</option>
-                 <option value="cos_stem">Cosine Similarity (stemming is applied)</option>
-                 <option value="cos_stem_stop_rem">Cosine Similarity (stemming and stopwords removal are applied)</option>
-                 <option value="jac">Jaccard Similarity</option>
-                 <option value="jac_stem">Jaccard Similarity (stemming is applied)</option>
-                 <option value="jac_stem_stop_rem">Jaccard Similarity (stemming and stopwords removal are applied)</option>
-                 <option value="dice">Dice Coefficient</option>
-                 <option value="dice_stem">Dice Coefficient (stemming is applied)</option>
-                 <option value="dice_stem_stop_rem">Dice Coefficient (stemming and stopwords removal are applied)</option>
-                 <option value="overlap">Overlap Coefficient</option>
-                 <option value="overlap_stem">Overlap Coefficient (stemming is applied)</option>
-                 <option value="overlap_stem_stop_rem">Overlap Coefficient (stemming and stopwords removal are applied)</option>
-                 <option value="ann">Artificial Neural Network</option>
-             </select>
-        </div>
-        <div class="checker-button-submit">
-            <input type="submit" value="Submit!">
-        </div>
+		<div class="footer">
+            <div class="checker-combobox-method">
+                 <select class="selectbox" name="checking-method">
+                     <option value="cos">Cosine Similarity</option>
+                     <option value="cos_stem">Cosine Similarity (stemming is applied)</option>
+                     <option value="cos_stem_stop_rem">Cosine Similarity (stemming and stopwords removal are applied)</option>
+                     <option value="jac">Jaccard Similarity</option>
+                     <option value="jac_stem">Jaccard Similarity (stemming is applied)</option>
+                     <option value="jac_stem_stop_rem">Jaccard Similarity (stemming and stopwords removal are applied)</option>
+                     <option value="dice">Dice Coefficient</option>
+                     <option value="dice_stem">Dice Coefficient (stemming is applied)</option>
+                     <option value="dice_stem_stop_rem">Dice Coefficient (stemming and stopwords removal are applied)</option>
+                     <option value="eucl">Euclidean Distance</option>
+                     <option value="eucl_stem">Euclidean Distance (stemming is applied)</option>
+                     <option value="eucl_stem_stop_rem">Euclidean Distance (stemming and stopwords removal are applied)</option>
+                     <option value="match">Matching Coefficient</option>
+                     <option value="match_stem">Matching Coefficient (stemming is applied)</option>
+                     <option value="match_stem_stop_rem">Matching Coefficient (stemming and stopwords removal are applied)</option>
+                     <option value="overlap">Overlap Coefficient</option>
+                     <option value="overlap_stem">Overlap Coefficient (stemming is applied)</option>
+                     <option value="overlap_stem_stop_rem">Overlap Coefficient (stemming and stopwords removal are applied)</option>
+                     <option value="ann">Artificial Neural Network</option>
+                 </select>
+            </div>
+            <div class="checker-button-submit">
+                <input class="button1" type="submit" value="Submit!">
+            </div>
+		</div>
     </form>
-    <div class="result">
+    <div class="footer">
         <p>Applied similarity algorithm: {{checking_method}}</p>
         <p>Result: {{result}}</p>
     </div>
