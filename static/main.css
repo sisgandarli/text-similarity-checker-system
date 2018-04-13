@@ -32,6 +32,9 @@
  textarea{
     background:none;
     color:#fff;
+    font-family: Arial;
+    font-size: 16px;
+    resize: none;
 }
  .footer {
      text-align:center;
@@ -63,6 +66,13 @@
      background:none;
 }
 
- option{
+ option, select {
      background-color: #333;
+     font-family: Verdana;
+     font-size: 14px
+}
+
+p {
+    font-family: Verdana;
+    font-size: 24px;
 }
