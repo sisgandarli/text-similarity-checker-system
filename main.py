@@ -7,6 +7,9 @@ from algorithms.cosine import *
 from algorithms.jaccard import *
 from algorithms.dice import *
 from algorithms.overlap import *
+from algorithms.ann_50_50 import *
+from algorithms.ann_random_data import *
+from algorithms.mean import *
 
 app = Flask(__name__)
 
@@ -23,8 +26,10 @@ method_names["dice_stem_stop_rem"] = "Dice Coefficient (stemming and stopwords r
 method_names["overlap"] = "Overlap Coefficient"
 method_names["overlap_stem"] = "Overlap Coefficient (stemming is applied)"
 method_names["overlap_stem_stop_rem"] = "Overlap Coefficient (stemming and stopwords removal are applied)"
-method_names["ann"] = "Artificial Neural Network"
-
+method_names["ann"] = "Artificial Neural Network (default news dataset)"
+method_names["ann_50x50"] = "Artificial Neural Network (news dataset with 50% positive and 50% negative examples)"
+method_names["ann_random_data"] = "Artificial Neural Network (random dataset with 50% positive and 50% negative examples)"
+method_names["mean"] = "Mean Value of Results of Applying Term-based Similarity Checking Algorithms"
 
 def algorithm_factory(checking_method):
     if checking_method is None:
@@ -55,37 +60,15 @@ def algorithm_factory(checking_method):
         return OverlapCoefSimStemStopwordsRem()
     elif checking_method == "ann":
         return ANN()
+    elif checking_method == "ann_50x50":
+        return ANN_50X50()
+    elif checking_method == "ann_random_data":
+        return ANN_RandomData()
+    elif checking_method == "mean":
+        return Mean()
     else:
         return None
 
-
-def apply_all_available_similarity_checking_methods(text_a, text_b):
-    result_list = list()
-    methods = [["cos", "Cosine Similarity"],
-               ["cos_stem", "Cosine Similarity (stemming is applied)"],
-               ["cos_stem_stop_rem", "Cosine Similarity (stemming and stopwords removal are applied)"],
-               ["jac", "Jaccard Similarity"],
-               ["jac_stem", "Jaccard Similarity (stemming is applied)"],
-               ["jac_stem_stop_rem", "Jaccard Similarity (stemming and stopwords removal are applied)"],
-               ["dice", "Dice Coefficient"],
-               ["dice_stem", "Dice Coefficient (stemming is applied)"],
-               ["dice_stem_stop_rem", "Dice Coefficient (stemming and stopwords removal are applied)"],
-               ["overlap", "Overlap Coefficient"],
-               ["overlap_stem", "Overlap Coefficient (stemming is applied)"],
-               ["overlap_stem_stop_rem", "Overlap Coefficient (stemming and stopwords removal are applied)"],
-               ["ann", "Artificial Neural Network"]
-               ]
-    for i in methods:
-        algorithm = algorithm_factory(i[0])
-        if (algorithm is None): continue
-        result = algorithm.compare(text_a, text_b)
-        print(i[0] + " " + str(result))
-        result_list.append((i, str(result)))
-        # Prevents caching
-        del result
-        del algorithm
-
-    return result_list
 
 
 @app.route("/", methods=["GET", "POST"])
