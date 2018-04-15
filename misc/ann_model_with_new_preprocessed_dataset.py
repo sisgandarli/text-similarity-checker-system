@@ -10,10 +10,8 @@ from random import random
 
 dt = pd.read_csv("../files/train_finalized.csv")
 
-cnt = 0
+
 for i in range(len(dt[dt['y'] == 0]) - len(dt[dt['y'] == 1])):
-    cnt += 1
-    print(cnt)
     row_num = int(random() * len(dt))
     while (dt.iloc[row_num]['y'] == 1):
         row_num = int(random() * len(dt))
